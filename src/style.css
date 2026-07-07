@@ -1,0 +1,155 @@
+:root {
+  --text: #6b6375;
+  --text-h: #08060d;
+  --bg: #fff;
+  --border: #e5e4e7;
+  --code-bg: #f4f3ec;
+  --accent: #aa3bff;
+  --accent-bg: rgba(170, 59, 255, 0.1);
+  --accent-border: rgba(170, 59, 255, 0.5);
+  --error-bg: rgba(220, 38, 38, 0.1);
+  --error-border: rgba(220, 38, 38, 0.5);
+  --error-text: #dc2626;
+
+  --sans: system-ui, "Segoe UI", Roboto, sans-serif;
+  --mono: ui-monospace, Consolas, monospace;
+
+  font: 16px/145% var(--sans);
+  color-scheme: light dark;
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #9ca3af;
+    --text-h: #f3f4f6;
+    --bg: #16171d;
+    --border: #2e303a;
+    --code-bg: #1f2028;
+    --accent: #c084fc;
+    --accent-bg: rgba(192, 132, 252, 0.15);
+    --accent-border: rgba(192, 132, 252, 0.5);
+    --error-bg: rgba(248, 113, 113, 0.12);
+    --error-border: rgba(248, 113, 113, 0.5);
+    --error-text: #f87171;
+  }
+}
+
+body {
+  margin: 0;
+}
+
+h1,
+h2 {
+  color: var(--text-h);
+  font-weight: 500;
+}
+
+h1 {
+  font-size: 32px;
+  margin: 0 0 24px;
+}
+
+h2 {
+  font-size: 18px;
+  margin: 0 0 12px;
+}
+
+code {
+  font-family: var(--mono);
+  border-radius: 4px;
+  color: var(--text-h);
+  background: var(--code-bg);
+  padding: 2px 6px;
+}
+
+#app {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 32px 24px 64px;
+  box-sizing: border-box;
+}
+
+#dropzone {
+  border: 2px dashed var(--border);
+  border-radius: 12px;
+  padding: 40px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition:
+    border-color 0.2s,
+    background 0.2s;
+}
+
+#dropzone:hover {
+  border-color: var(--accent-border);
+}
+
+#dropzone.dragover {
+  border-color: var(--accent);
+  background: var(--accent-bg);
+}
+
+.error {
+  margin-top: 16px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: var(--error-bg);
+  border: 1px solid var(--error-border);
+  color: var(--error-text);
+  font-size: 14px;
+}
+
+#text-input {
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 24px;
+  padding: 12px;
+  font-family: var(--mono);
+  font-size: 15px;
+  min-height: 80px;
+  resize: vertical;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text-h);
+}
+
+section {
+  margin-top: 32px;
+}
+
+.canvas-wrap {
+  overflow: auto;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px;
+  background: repeating-conic-gradient(
+      var(--code-bg) 0% 25%,
+      transparent 0% 50%
+    )
+    50% / 20px 20px;
+}
+
+#text-canvas-wrap {
+  resize: both;
+  min-width: 120px;
+  min-height: 60px;
+  max-height: 60vh;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+canvas {
+  display: block;
+  image-rendering: pixelated;
+}
+
+#text-canvas {
+  min-width: 100%;
+}

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bitmap Font Checker</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>Bitmap Font Checker</h1>
+
+      <div id="dropzone">
+        <p>Drag &amp; drop <code>.fnt</code> + <code>.png</code> here, or click to browse</p>
+        <input id="file-input" type="file" multiple hidden accept=".fnt,.png,image/png" />
+      </div>
+
+      <div id="error" class="error" hidden></div>
+
+      <textarea id="text-input" placeholder="Type text to preview...">Hello World</textarea>
+
+      <section>
+        <h2>Text preview</h2>
+        <div id="text-canvas-wrap" class="canvas-wrap">
+          <canvas id="text-canvas"></canvas>
+        </div>
+      </section>
+
+      <section>
+        <h2>Full atlas preview</h2>
+        <div class="canvas-wrap">
+          <canvas id="atlas-canvas"></canvas>
+        </div>
+      </section>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
