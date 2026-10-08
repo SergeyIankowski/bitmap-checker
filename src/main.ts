@@ -38,14 +38,6 @@ function redrawText(explicitWidth?: number): void {
 	renderText(textCtx, currentAtlas, textInput.value, maxWidth);
 }
 
-function applyDefaultHeight(atlas: FontAtlas): void {
-	const firstPageImage = atlas.pageImages.find((img) => img);
-	if (!firstPageImage) return;
-	const height = `${firstPageImage.naturalHeight}px`;
-	textInput.style.height = height;
-	textCanvasWrap.style.height = height;
-}
-
 async function handleFiles(files: File[]): Promise<void> {
 	const { fntFile, imageFiles } = categorizeFiles(files);
 
@@ -58,7 +50,6 @@ async function handleFiles(files: File[]): Promise<void> {
 		const atlas = await loadFontAtlas(fntFile, imageFiles);
 		currentAtlas = atlas;
 		showError(null);
-		applyDefaultHeight(atlas);
 		redrawText();
 		renderAtlas(atlasCtx, atlas);
 	} catch (err) {
