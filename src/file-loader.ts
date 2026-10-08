@@ -10,7 +10,7 @@ export function categorizeFiles(files: File[]): CategorizedFiles {
 		const name = file.name.toLowerCase();
 		if (name.endsWith(".fnt")) {
 			result.fntFile = file;
-		} else if (/\.(png|jpg|jpeg|webp)$/.test(name)) {
+		} else if (/\.(png|jpg|jpeg|webp|avif)$/.test(name)) {
 			result.imageFiles.push(file);
 		}
 	}
